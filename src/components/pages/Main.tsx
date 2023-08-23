@@ -27,16 +27,16 @@ const Main = () => {
           <option value="30">30개씩 보기</option>
         </select>
       </SortWrap>
-      <Data>
+      <div>
         {posts.slice(offset, offset + totalPosts).map(({ id, title, body }) => (
-          <List key={id}>
+          <div key={id}>
             <h3>
               {id}. {title}
             </h3>
             <p>{body}</p>
-          </List>
+          </div>
         ))}
-      </Data>
+      </div>
       <Pagination
         total={posts.length}
         totalPosts={totalPosts}
@@ -57,6 +57,7 @@ const Container = styled.div`
 const Title = styled.h2`
   font-size: 50px;
 `;
+
 const SortWrap = styled.div`
   margin: 20px auto;
   select {
@@ -66,7 +67,5 @@ const SortWrap = styled.div`
     border-radius: 5px;
   }
 `;
-const Data = styled.div``;
-const List = styled.div``;
 
 export default Main;

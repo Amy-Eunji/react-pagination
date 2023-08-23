@@ -29,6 +29,7 @@ const Nav = styled.div`
   gap: 4px;
   margin: 16px;
 `;
+
 const Button = styled.button`
   border: none;
   background: #ffffff;
