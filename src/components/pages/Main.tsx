@@ -16,7 +16,7 @@ const Main = () => {
 
   return (
     <Container>
-      <Title> Pagenation 📎 </Title>
+      <Title> Pagination 📎 </Title>
       <SortWrap>
         <select
           value={totalPosts}
