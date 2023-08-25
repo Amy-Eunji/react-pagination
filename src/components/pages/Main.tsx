@@ -7,9 +7,9 @@ import axios from "axios";
 
 const Main = () => {
   // const [post, setPost] = useState([]);
-  const [totalPosts, setTotalPosts] = useState(10);
-  const [page, setPage] = useState(1);
-  const offset = (page - 1) * totalPosts;
+  const [totalPosts, setTotalPosts] = useState(10); // 페이지 당 게시물 수
+  const [page, setPage] = useState(1); // 현재 페이지 번호
+  const offset = (page - 1) * totalPosts; // 첫 게시물의 위치
 
   // useEffect(() => {
   //   fetch("https://jsonplaceholder.typicode.com/posts")
@@ -22,17 +22,9 @@ const Main = () => {
     const data = await response.json();
     return data;
   };
+  const { data: posts, isLoading } = useQuery("posts", fetchPosts);
 
-  const { data: posts, isLoading, error } = useQuery("posts", fetchPosts);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error</div>;
-  }
-
+  if (isLoading) return null;
   return (
     <Container>
       <Title> Pagination 📎 </Title>
